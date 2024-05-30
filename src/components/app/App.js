@@ -1,7 +1,7 @@
-import "./App.css";
-import NavBar from "../App/components/nav-bar/index";
-import PostList from "./components/post-list";
-import HotPost from "./components/hot-post";
+import "./App.scss";
+import NavBar from "../nav-bar/index";
+import PostList from "../post-list";
+import HotPost from "../hot-post";
 
 function App() {
   return (
