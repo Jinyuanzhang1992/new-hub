@@ -11,9 +11,9 @@ function PostList(props) {
   }, []);
 
   return (
-    <Row className=" g-3">
+    <Row className="g-3">
       {postList.map((item) => (
-        <Col md={4} key={item.id}>
+        <Col lg={4} key={item.id}>
           <Card>
             <Card.Img
               variant="top"
@@ -34,7 +34,7 @@ function PostList(props) {
               >
                 {item.content}
               </Card.Text>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div className="button-style">
                 <Button variant="primary">Button</Button>
                 <Button variant="secondary">Button</Button>
               </div>

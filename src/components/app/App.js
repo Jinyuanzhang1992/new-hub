@@ -18,18 +18,12 @@ function App() {
             <Col lg={9}>
               <Routes>
                 <Route path="/" element={<PostList page={1} />}></Route>
-                <Route
-                  path="/post-list"
-                  element={<PostList page={1} />}
-                ></Route>
-                <Route
-                  path="/write-list"
-                  element={<WritePost page={1} />}
-                ></Route>
+                <Route path="/post-list" element={<PostList />}></Route>
+                <Route path="/write-list" element={<WritePost />}></Route>
               </Routes>
             </Col>
             <Col lg={3}>
-              <HotPost page={1} />
+              <HotPost />
             </Col>
           </Row>
         </Container>
