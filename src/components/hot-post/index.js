@@ -14,7 +14,7 @@ function HotPost(props) {
 
   return (
     <ul className="list-group">
-      <li className="list-group-item active">Hot Post</li>
+      <li className="list-group-item active">Hot Posts</li>
       {hotList.map((item) => (
         <li className="list-group-item" key={item.id}>
           <div className="d-flex justify-content-between">

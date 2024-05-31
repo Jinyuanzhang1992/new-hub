@@ -23,7 +23,7 @@ function PostList(props) {
             <div className="caption">
               <h3>{item.title}</h3>
               <p>{item.content}</p>
-              <p>
+              <p style={{ display: "flex", justifyContent: "space-between" }}>
                 <a href="#" className="btn btn-primary" role="button">
                   Button
                 </a>
