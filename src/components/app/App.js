@@ -3,21 +3,24 @@ import NavBar from "../nav-bar/index";
 import PostList from "../post-list";
 import HotPost from "../hot-post";
 import Footer from "../footer/index";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-9">
+      <Container fluid="md">
+        <Row>
+          <Col md={9}>
             <PostList page={1} />
-          </div>
-          <div className="col-md-3">
+          </Col>
+          <Col md={3}>
             <HotPost page={1} />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
       <Footer year={2024} />
     </div>
   );

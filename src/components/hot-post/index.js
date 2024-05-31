@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import hotListMock from "./hot-post.mock.json";
+import ListGroup from "react-bootstrap/ListGroup";
+import "./hot-post.scss";
 
 function HotPost(props) {
   const [hotList, setHotList] = useState([]);
@@ -13,17 +15,21 @@ function HotPost(props) {
   }, []);
 
   return (
-    <ul className="list-group">
-      <li className="list-group-item active">Hot Posts</li>
+    <ListGroup as="ul">
+      <ListGroup.Item as="li" active>
+        Hot Posts
+      </ListGroup.Item>
       {hotList.map((item) => (
-        <li className="list-group-item" key={item.id}>
-          <div className="d-flex justify-content-between">
-            <span>{item.title}</span>
-            <span>{item.updateTime}</span>
-          </div>
-        </li>
+        <ListGroup.Item
+          as="li"
+          key={item.id}
+          className="d-flex justify-content-between"
+        >
+          <span>{item.title}</span>
+          <span>{item.updateTime}</span>
+        </ListGroup.Item>
       ))}
-    </ul>
+    </ListGroup>
   );
 }
 export default HotPost;

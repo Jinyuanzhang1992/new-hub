@@ -1,41 +1,39 @@
+import { Nav, Container, Navbar } from "react-bootstrap";
+import icon from "../../assets/icons/icon-browser-tab.jpg";
+import "./nav-bar.scss";
+
 function NavBar() {
   return (
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-            aria-expanded="false"
+    <Navbar className="bg-body-tertiary" expand="lg" sticky="top">
+      <Container className="d-flex justify-content-start align-items-center">
+        <Navbar.Brand href="#home">
+          <img
+            alt="logo"
+            src={icon}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          News Hub
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style={{ "--bs-scroll-height": "100px" }}
+            navbarScroll
           >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-          <a className="navbar-brand" href="#">
-            News Hub
-          </a>
-        </div>
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
-          <ul className="nav navbar-nav">
-            <li className="active">
-              <a href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">Creation</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            <Nav.Item>
+              <Nav.Link href="/home">Home</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-1">Creation</Nav.Link>
+            </Nav.Item>
+            {/* 这里可以添加更多的 Nav.Item */}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
