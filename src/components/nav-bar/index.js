@@ -1,41 +1,40 @@
+import { Nav, Container, Navbar } from "react-bootstrap";
+import "./nav-bar.scss";
+import { LinkContainer } from "react-router-bootstrap";
+
 function NavBar() {
   return (
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-          <a className="navbar-brand" href="#">
+    <Navbar className="bg-body-tertiary" expand="lg" sticky="top">
+      <Container className="d-flex justify-content-start align-items-center">
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <img
+              alt="logo"
+              src={`${process.env.PUBLIC_URL}assets//icons/icon-browser-tab.jpg`}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
             News Hub
-          </a>
-        </div>
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
-          <ul className="nav navbar-nav">
-            <li className="active">
-              <a href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">Creation</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls="navbarScroll" className="ms-auto" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style={{ "--bs-scroll-height": "100px" }}
+            navbarScroll
+          >
+            <LinkContainer to="/post-list">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/write-list">
+              <Nav.Link>Creation</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
