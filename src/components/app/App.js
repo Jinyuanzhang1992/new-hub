@@ -11,17 +11,17 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Container fluid="md">
+      <Container fluid="lg" className="large-margin">
         <Row>
-          <Col md={9}>
+          <Col lg={9}>
             <PostList page={1} />
           </Col>
-          <Col md={3}>
+          <Col lg={3}>
             <HotPost page={1} />
           </Col>
         </Row>
       </Container>
-      <Footer year={2024} />
+      <Footer name={"Jinyuan Zhang"} />
     </div>
   );
 }

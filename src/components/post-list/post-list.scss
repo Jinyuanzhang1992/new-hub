@@ -1,8 +1,27 @@
-/* styles.css */
-.small-title {
-  font-size: 1rem; /* 调整标题字体大小 */
+$light-gray: rgb(242, 242, 242);
+$dark-text: rgb(33, 37, 41);
+
+%color {
+  color: $dark-text;
 }
 
-.small-text {
-  font-size: 0.875rem; /* 调整文本字体大小 */
+.style-card-body {
+  background-color: light-gray;
+  @extend %color;
+
+  .small-title {
+    font-size: 1rem;
+    @extend %color;
+  }
+
+  .small-text {
+    font-size: 0.875rem;
+    @extend %color;
+  }
 }
+
+// 注意，如果单独放在外面不会生效，因为这是一个占位符，需要被继承
+// 为什么把 .small-title 放在 .style-card-body 里面，而不是放在外面？
+// 因为 .small-title 是 .style-card-body 的一部分，所以应该放在里面
+//为什么放在不会生效？
+// 因为 %color 是一个占位符，需要被继承才会生效

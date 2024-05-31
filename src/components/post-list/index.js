@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import postListMock from "./post-list.mock.json";
+import postListMock from "../../mock-data/post-list.mock.json";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "./post-list.scss";
 
@@ -11,7 +11,7 @@ function PostList(props) {
   }, []);
 
   return (
-    <Row className="g-3">
+    <Row className=" g-3">
       {postList.map((item) => (
         <Col md={4} key={item.id}>
           <Card>
@@ -21,7 +21,7 @@ function PostList(props) {
               alt="100%x200"
               style={{ height: "200px", width: "100%", display: "block" }}
             />
-            <Card.Body>
+            <Card.Body className="style-card-body">
               <Card.Title
                 className="
               small-title"

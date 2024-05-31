@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import hotListMock from "./hot-post.mock.json";
+import hotListMock from "../../mock-data/hot-post.mock.json";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./hot-post.scss";
 
