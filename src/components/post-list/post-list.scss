@@ -7,16 +7,16 @@ $dark-text: rgb(33, 37, 41);
 
 .style-card-body {
   background-color: light-gray;
-  @extend %color;
+  // @extend %color;
 
   .small-title {
     font-size: 1rem;
-    @extend %color;
+    // @extend %color;
   }
 
   .small-text {
     font-size: 0.875rem;
-    @extend %color;
+    // @extend %color;
   }
 }
 

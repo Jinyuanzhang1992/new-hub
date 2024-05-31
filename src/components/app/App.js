@@ -3,26 +3,39 @@ import NavBar from "../nav-bar/index";
 import PostList from "../post-list";
 import HotPost from "../hot-post";
 import Footer from "../footer/index";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import WritePost from "../write-post";
+import { Container, Row, Col } from "react-bootstrap";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Container fluid="lg" className="large-margin">
-        <Row>
-          <Col lg={9}>
-            <PostList page={1} />
-          </Col>
-          <Col lg={3}>
-            <HotPost page={1} />
-          </Col>
-        </Row>
-      </Container>
-      <Footer name={"Jinyuan Zhang"} />
-    </div>
+    <Router>
+      <div className="App" data-bs-theme="dark">
+        {/* data-bs-theme="dark"：启用 dark 主题 */}
+        <NavBar />
+        <Container fluid="lg" className="large-margin">
+          <Row>
+            <Col lg={9}>
+              <Routes>
+                <Route path="/" element={<PostList page={1} />}></Route>
+                <Route
+                  path="/post-list"
+                  element={<PostList page={1} />}
+                ></Route>
+                <Route
+                  path="/write-list"
+                  element={<WritePost page={1} />}
+                ></Route>
+              </Routes>
+            </Col>
+            <Col lg={3}>
+              <HotPost page={1} />
+            </Col>
+          </Row>
+        </Container>
+        <Footer name={"Jinyuan Zhang"} />
+      </div>
+    </Router>
   );
 }
 

@@ -21,7 +21,7 @@ function PostList(props) {
               alt="100%x200"
               style={{ height: "200px", width: "100%", display: "block" }}
             />
-            <Card.Body className="style-card-body">
+            <Card.Body>
               <Card.Title
                 className="
               small-title"
