@@ -4,6 +4,7 @@ import PostList from "../post-list";
 import HotPost from "../hot-post";
 import Footer from "../footer/index";
 import WritePost from "../write-post";
+import PostDetails from "../post-details";
 import { Container, Row, Col } from "react-bootstrap";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
@@ -19,6 +20,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<PostList page={1} />}></Route>
                 <Route path="/post-list" element={<PostList />}></Route>
+                <Route
+                  path="/post-details/:id"
+                  element={<PostDetails />}
+                ></Route>
                 <Route path="/write-list" element={<WritePost />}></Route>
               </Routes>
             </Col>

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import postListMock from "../../mock-data/post-list.mock.json";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "./post-list.scss";
+import { useNavigate } from "react-router-dom";
 
 function PostList(props) {
   const [postList, setPostList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setPostList(postListMock);
@@ -35,7 +37,19 @@ function PostList(props) {
                 {item.content}
               </Card.Text>
               <div className="button-style">
-                <Button variant="primary">Button</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    console.log(new Blob([JSON.stringify(item)]));
+                    window.localStorage.setItem(
+                      "postDetails",
+                      JSON.stringify(item)
+                    );
+                    navigate(`/post-details/${item.id}`);
+                  }}
+                >
+                  Details
+                </Button>
                 <Button variant="secondary">Button</Button>
               </div>
             </Card.Body>
