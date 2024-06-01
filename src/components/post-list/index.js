@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import postListMock from "../../mock-data/post-list.mock.json";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import "./post-list.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,11 @@ function PostList(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setPostList(postListMock);
+    const timer1 = setTimeout(() => {
+      setPostList(postListMock);
+    }, 10);
+
+    return () => clearTimeout(timer1);
   }, []);
 
   return (
@@ -36,22 +40,29 @@ function PostList(props) {
               >
                 {item.content}
               </Card.Text>
-              <div className="button-style">
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    console.log(new Blob([JSON.stringify(item)]));
-                    window.localStorage.setItem(
-                      "postDetails",
-                      JSON.stringify(item)
-                    );
-                    navigate(`/post-details/${item.id}`);
-                  }}
-                >
-                  Details
-                </Button>
-                <Button variant="secondary">Button</Button>
-              </div>
+              <Container>
+                <Row className="justify-content-center">
+                  <Col xs="auto">
+                    {/* Col 设置为 xs="auto"确保按钮的列宽根据内容自动调整，而不是使用固定的网格列数。这样内容自适应，就能居中 */}
+                    <div className="button-style ">
+                      <Button
+                        variant="primary"
+                        onClick={() => {
+                          console.log(new Blob([JSON.stringify(item)]));
+                          window.localStorage.setItem(
+                            "postDetails",
+                            JSON.stringify(item)
+                          );
+                          navigate(`/post-details/${item.id}`);
+                        }}
+                      >
+                        Details
+                      </Button>
+                      {/* <Button variant="secondary">Button</Button> */}
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
             </Card.Body>
           </Card>
         </Col>

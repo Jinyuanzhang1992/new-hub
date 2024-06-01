@@ -9,7 +9,7 @@ function HotPost(props) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHotList(hotListMock);
-    }, 1000);
+    }, 10);
 
     return () => clearTimeout(timer);
   }, []);
