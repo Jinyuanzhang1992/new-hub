@@ -4,7 +4,6 @@ import postDetailsMock from "../../mock-data/post-details.mock.json";
 
 function PostDetails() {
   const { id } = useParams();
-  console.log(id);
 
   const [postDetails, setPostDetails] = useState([]);
 

@@ -58,7 +58,6 @@ function PostList(props) {
                       >
                         Details
                       </Button>
-                      {/* <Button variant="secondary">Button</Button> */}
                     </div>
                   </Col>
                 </Row>
