@@ -10,7 +10,7 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="App" data-bs-theme="dark">
+      <div className="App" data-bs-theme="light">
         {/* data-bs-theme="dark"：启用 dark 主题 */}
         <NavBar />
         <Container fluid="lg" className="large-margin">
