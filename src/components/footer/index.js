@@ -8,15 +8,15 @@ function Footer(props) {
     <footer className="bg-light text-center text-lg-start">
       <Container className="p-4">
         <Row>
-          <Col lg="6" md="12" className="mb-4 mb-md-0">
+          <Col lg="6" className="mb-4 mb-md-0 d-none d-lg-block">
             <h5 className="text-uppercase">Footer Content</h5>
             <p>
               Here you can use rows and columns to organize your footer content.
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
           </Col>
-          <Col lg="2" md="6" className="mb-4 mb-md-0">
-            <h5 className="text-uppercase">Links</h5>
+          <Col lg="2" md="4" xs="4" className="mb-4 mb-md-0">
+            <h5 className="text-uppercase">About Us</h5>
             <ul className="list-unstyled mb-0">
               <li>
                 <a href="#!" className="text-dark">
@@ -40,8 +40,8 @@ function Footer(props) {
               </li>
             </ul>
           </Col>
-          <Col lg="2" md="6" className="mb-4 mb-md-0">
-            <h5 className="text-uppercase">Guides</h5>
+          <Col lg="2" md="4" xs="4" className="mb-4 mb-md-0">
+            <h5 className="text-uppercase">Nav Links</h5>
             <ul className="list-unstyled mb-0">
               <li>
                 <a href="#!" className="text-dark">
@@ -65,8 +65,8 @@ function Footer(props) {
               </li>
             </ul>
           </Col>
-          <Col lg="2" md="6" className="mb-4 mb-md-0">
-            <h5 className="text-uppercase">Projects</h5>
+          <Col lg="2" md="4" xs="4" className="mb-4 mb-md-0">
+            <h5 className="text-uppercase">Legal</h5>
             <ul className="list-unstyled mb-0">
               <li>
                 <a href="#!" className="text-dark">

@@ -6,6 +6,7 @@ import {
   LinkContainer,
 } from "../../../utils/imports";
 import { useState } from "react";
+import "./side-bar.scss";
 
 function SideBar() {
   const [activeKey, setActiveKey] = useState("/manage/dashboard");

@@ -5,10 +5,10 @@ function ManageMain() {
   return (
     <Container fluid>
       <Row>
-        <Col lg={9}>
+        <Col xs={12} md={8} lg={9}>
           <Outlet />
         </Col>
-        <Col lg={3}>
+        <Col xs={12} md={4} lg={3}>
           <SideBar />
         </Col>
       </Row>

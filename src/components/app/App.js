@@ -9,7 +9,6 @@ import ManageMain from "../manage/manage-main";
 import Dashboard from "../manage/dashboard/index";
 import PostManage from "../manage/post-manage";
 // import { Container, Row, Col } from "react-bootstrap";
-import {} from "react-router-dom";
 import {
   Container,
   Row,
@@ -34,7 +33,7 @@ function AppContent() {
       <NavBar />
       <Container fluid="lg" className="large-margin">
         <Row>
-          <Col lg={hideHotPost ? 12 : 9}>
+          <Col xs={12} md={hideHotPost ? 12 : 7} lg={hideHotPost ? 12 : 9}>
             {/* 隐藏右侧热门文章并不占据位置 */}
             <Routes>
               <Route path="/" element={<PostList page={1} />}></Route>
@@ -49,7 +48,8 @@ function AppContent() {
             </Routes>
           </Col>
           {!hideHotPost && (
-            <Col lg={3}>
+            <Col md={5} lg={3} className="d-none d-md-block">
+              {/* d-none：在所有屏幕尺寸下隐藏元素。d-md-block：在中等屏幕及更大尺寸（≥768px）下显示元素。这意味着 <HotPost /> 组件在小屏幕（<768px）时将被隐藏，而在中等屏幕及更大尺寸时将显示。 */}
               <HotPost />
             </Col>
           )}

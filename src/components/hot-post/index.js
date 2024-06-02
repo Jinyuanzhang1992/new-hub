@@ -15,7 +15,7 @@ function HotPost(props) {
   }, []);
 
   return (
-    <ListGroup as="ul">
+    <ListGroup as="ul" className="fixed-hotlist">
       <ListGroup.Item as="li" active>
         Hot Posts
       </ListGroup.Item>

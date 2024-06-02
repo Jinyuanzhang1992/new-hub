@@ -1,10 +1,10 @@
-import { Nav, Container, Navbar, Button, NavDropdown } from "react-bootstrap";
+import { Nav, Container, Navbar } from "react-bootstrap";
 import "./nav-bar.scss";
 import { LinkContainer } from "react-router-bootstrap";
 
 function NavBar() {
   return (
-    <Navbar className="bg-body-tertiary" expand="lg" sticky="top">
+    <Navbar className="bg-body-tertiary" expand="md" sticky="top">
       <Container className="d-flex justify-content-start align-items-center">
         <LinkContainer to="/">
           <Navbar.Brand>

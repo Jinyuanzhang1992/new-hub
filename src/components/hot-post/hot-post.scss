@@ -1,3 +1,13 @@
 span {
   font-size: 0.8rem; /* 调整文本字体大小 */
 }
+
+:root {
+  --navbar-height: 40px;
+}
+
+.fixed-hotlist {
+  position: sticky;
+  top: calc(var(--navbar-height) + 1rem + 1.5rem);
+  z-index: 1000; /* 确保它在顶部 */
+}

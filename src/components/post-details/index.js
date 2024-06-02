@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import postDetailsMock from "../../mock-data/post-details.mock.json";
+// import { useParams } from "react-router-dom";
 
 function PostDetails() {
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const [postDetails, setPostDetails] = useState([]);
 
