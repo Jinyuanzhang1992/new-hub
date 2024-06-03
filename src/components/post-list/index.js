@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
-import postListMock from "../../mock-data/post-list.mock.json";
+// import postListMock from "../../mock-data/post-list.mock.json";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import "./post-list.scss";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 function PostList(props) {
   const [postList, setPostList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer1 = setTimeout(() => {
-      setPostList(postListMock);
-    }, 10);
-
-    return () => clearTimeout(timer1);
+    Axios.get("http://localhost:3001/posts")
+      .then((res) => {
+        console.log(res);
+        console.log(res?.data);
+        setPostList(res?.data || []);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+  console.log(postList);
 
   return (
     <Row className="g-3">
