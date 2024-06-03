@@ -21,6 +21,7 @@ import {
 } from "../../utils/imports";
 
 function AppContent() {
+  //当我们说组件component的时候，不一定是带有 UI 的，才算组件，路由，hooks，context，都可以算是组件
   const location = useLocation();
   const hideHotPost = /^\/(manage|write-list|post-details)/.test(
     location.pathname

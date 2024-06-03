@@ -3,55 +3,58 @@ import { useEffect, useState } from "react";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import "./post-list.scss";
 import { useNavigate } from "react-router-dom";
-import Axios from "axios";
 import axios from "axios";
+import useRequest from "../../utils/axios-request";
 
 function PostList(props) {
   const [postList, setPostList] = useState([]);
   const navigate = useNavigate();
+  const url = "http://localhost:3001/posts";
 
-  useEffect(() => {
-    // Axios.get("http://localhost:3001/posts")
-    //   .then((res) => {
-    //     console.log(res);
-    //     console.log(res?.data);
-    //     setPostList(res?.data || []);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+  const { data, loading, error } = useRequest(url, setPostList);
 
-    const api = axios.create();
-    const requestInterceptor = api.interceptors.request.use(
-      (config) => {
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      }
-    );
-    // 请求拦截器，可以在请求前做一些处理，比如加 token
+  // useEffect(() => {
+  //   // Axios.get("http://localhost:3001/posts")
+  //   //   .then((res) => {
+  //   //     console.log(res);
+  //   //     console.log(res?.data);
+  //   //     setPostList(res?.data || []);
+  //   //   })
+  //   //   .catch((err) => {
+  //   //     console.log(err);
+  //   //   });
 
-    api
-      .get("http://localhost:3001/posts")
-      .then((res) => {
-        console.log(res);
-        console.log(res?.data);
-        setPostList(res?.data || []);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  //   const api = axios.create();
+  //   const requestInterceptor = api.interceptors.request.use(
+  //     (config) => {
+  //       return config;
+  //     },
+  //     (error) => {
+  //       return Promise.reject(new Error(error.message));
+  //     }
+  //   );
+  //   // 请求拦截器，可以在请求前做一些处理，比如加 token
 
-    //常见的就是加 config，error
-    //最常见的做法是把api 封装成一个函数，然后在每个请求前都调用一下这个函数
-    return () => {
-      api.interceptors.request.eject(requestInterceptor);
-    };
-    //清除拦截器
-  }, []);
+  //   api
+  //     .get("http://localhost:3001/posts")
+  //     .then((res) => {
+  //       console.log(res);
+  //       console.log(res?.data);
+  //       setPostList(res?.data || []);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
 
-  console.log(postList);
+  //   //常见的就是加 config，error
+  //   //最常见的做法是把api 封装成一个函数，然后在每个请求前都调用一下这个函数
+  //   return () => {
+  //     api.interceptors.request.eject(requestInterceptor);
+  //   };
+  //   //清除拦截器
+  // }, []);
+
+  // console.log("after: ", postList);
 
   return (
     <Row className="g-3">
