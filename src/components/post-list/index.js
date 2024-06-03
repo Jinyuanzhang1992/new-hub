@@ -22,7 +22,7 @@ function PostList(props) {
     //   });
 
     const api = axios.create();
-    api.interceptors.request.use(
+    const requestInterceptor = api.interceptors.request.use(
       (config) => {
         return config;
       },
@@ -45,6 +45,10 @@ function PostList(props) {
 
     //常见的就是加 config，error
     //最常见的做法是把api 封装成一个函数，然后在每个请求前都调用一下这个函数
+    return () => {
+      api.interceptors.request.eject(requestInterceptor);
+    };
+    //清除拦截器
   }, []);
 
   console.log(postList);
