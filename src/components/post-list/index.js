@@ -4,13 +4,36 @@ import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import "./post-list.scss";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
+import axios from "axios";
 
 function PostList(props) {
   const [postList, setPostList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/posts")
+    // Axios.get("http://localhost:3001/posts")
+    //   .then((res) => {
+    //     console.log(res);
+    //     console.log(res?.data);
+    //     setPostList(res?.data || []);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    const api = axios.create();
+    api.interceptors.request.use(
+      (config) => {
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+    // 请求拦截器，可以在请求前做一些处理，比如加 token
+
+    api
+      .get("http://localhost:3001/posts")
       .then((res) => {
         console.log(res);
         console.log(res?.data);
@@ -19,7 +42,11 @@ function PostList(props) {
       .catch((err) => {
         console.log(err);
       });
+
+    //常见的就是加 config，error
+    //最常见的做法是把api 封装成一个函数，然后在每个请求前都调用一下这个函数
   }, []);
+
   console.log(postList);
 
   return (
